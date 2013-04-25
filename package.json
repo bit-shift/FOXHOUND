@@ -1,0 +1,9 @@
+{
+  "name": "foxhound",
+  "fullName": "Foxhound",
+  "id": "jid1-TmZa25QSV6uyNw",
+  "description": "Encoder/decoder tool for Firefox",
+  "author": "Bit Shift <bitshift@bigmacintosh.net>",
+  "license": "Simplified BSD",
+  "version": "0.1.0"
+}
