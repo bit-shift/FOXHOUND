@@ -64,21 +64,24 @@ self.on("click", function() {
         while(i < morseText.length) {
             if(["-", "."].indexOf(morseText[i]) !== -1) {
                 currentLetter += morseText[i];
-            } else if(morseText[i] === " ") {
+            } else {
                 if(currentLetter.length > 0) {
                     cleartext += morseTable[currentLetter];
                     currentLetter = "";
-                } else if(morseText[i-1] != "/") {
-                    cleartext += " ";
                 }
-            } else if(morseText[i] === "/") {
-                if((i == 0) || (morseText[i-1] !== " ")) {
-                    cleartext += "/";
+                if(morseText[i] === " ") {
+                    if((i == 0) || (["-", "."].indexOf(morseText[i-1]) === -1)) {
+                        cleartext += " "
+                    }
+                } else if(morseText[i] === "/") {
+                    if((i == 0) || (morseText[i-1] !== " ")) {
+                        cleartext += "/";
+                    } else {
+                        cleartext += " ";
+                    }
                 } else {
-                    cleartext += " ";
+                    cleartext += morseText[i];
                 }
-            } else {
-                cleartext += morseText[i];
             }
             i++;
         }
@@ -91,7 +94,7 @@ self.on("click", function() {
         }
 
         return cleartext;
-    }
+    };
 
-    window.alert(deMorse("" + document.getSelection()));
+    self.postMessage(deMorse(window.getSelection().toString()));
 });
