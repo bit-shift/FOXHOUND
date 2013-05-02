@@ -5,5 +5,5 @@
   "description": "Encoder/decoder tool for Firefox",
   "author": "Bit Shift <bitshift@bigmacintosh.net>",
   "license": "Simplified BSD",
-  "version": "0.2.1"
+  "version": "0.2.2"
 }
